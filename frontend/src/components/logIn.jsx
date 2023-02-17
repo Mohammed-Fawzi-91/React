@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./header.css";
 import { useNavigate } from "react-router-dom";
-const path = "https://tess-app.onrender.com";
-
+let pathh = "https://tess-app.onrender.com";
 
 function LogIn() {
   const [email, setEmail] = useState("");
@@ -18,18 +17,17 @@ function LogIn() {
     setError(null);
 
     try {
-      const res = await axios.post(`${path}/api/login`, {
+      console.log(1)
+      console.log(email)
+      console.log(password)
+
+   
+     await axios.post(`${pathh}/api/login`, {
         email,
         password,
       });
+      console.log(2)
 
-      const theDataCoin = res.data.theCode;
-      //console.log(theDataCoin);
-      if (!theDataCoin) {
-        throw new Error("Login failed");
-      }
-
-      localStorage.setItem("token", theDataCoin);
       history("/welcome");
     } catch (err) {
       setError(err.message);
