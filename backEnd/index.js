@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Configure a catch-all route that returns the index.html file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.js'));
+  res.sendFile(path.join(__dirname, 'build', 'app.js'));
 });
 
 app.use(cors());
