@@ -8,6 +8,17 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const path = require('path');
+
+
+// Serve static files from the build folder
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Configure a catch-all route that returns the index.html file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 app.use(cors());
 
 app.use(express.json());
