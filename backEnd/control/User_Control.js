@@ -57,24 +57,15 @@ const logIn = async (req, res) => {
   if (!exist) {
     return res.status(400).json({ message: "user not found" });
   }
-  let isPasswordValid = compareSync(password, exist.password);
-  if (!isPasswordValid) {
+ 
+  if (password !== exist.password) {
     return res.status(400).json({ message: "wrong pass" });
   }
-  let theCode = jwt.sign({ id: exist._id }, KEY, { expiresIn: "5000s" });
-
-  res.cookie("token", theCode, {
-    path: "/",
-    maxAge: 1000 * 5000,
-    httpOnly: true,
-    sameSite: "lax",
-    domain: "localhost",
-    httpOnly: true,
-  });
+ 
 
   //let done = res.status(200).json({ token });
-  console.log(theCode);
-  return res.status(200).json({ theCode });
+  console.log(exist);
+  return res.status(200).json({ ww:"loged in " });
 };
 
 const veryFeidToken = (req, res, next) => {

@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "./header.css";
 import { useNavigate } from "react-router-dom";
+const path = "https://tess-app.onrender.com";
+
 
 function LogIn() {
   const [email, setEmail] = useState("");
@@ -10,12 +12,13 @@ function LogIn() {
   const [loading, setLoading] = useState(false);
   const history = useNavigate();
 
+
   const check = async () => {
     setLoading(true);
     setError(null);
 
     try {
-      const res = await axios.post("http://localhost:3500/api/login", {
+      const res = await axios.post(`${path}/api/login`, {
         email,
         password,
       });

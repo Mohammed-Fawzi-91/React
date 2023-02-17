@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+const path = "https://tess-app.onrender.com";
 
 
 
@@ -10,7 +11,7 @@ const getData = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("https://tess-app.onrender.com/api/getData");
+      const result = await axios.get(`${path}/api/getData`);
       setData(result.data);
     };
     fetchData();
@@ -31,7 +32,7 @@ const getData = () => {
             <td>{item.name}</td>
             <td>{item.year}</td>
             <td>
-              <a href={`http://localhost:3500/api/download/${item._id}`}>Download</a>
+              <a href={`${path}/api/download/${item._id}`}>Download</a>
             </td>
           </tr>
         ))}
@@ -68,7 +69,7 @@ const Welcome = () => {
      formData.append("year", year);
      console.log(formData)
     axios
-      .post("http://localhost:3500/api/add", formData)
+      .post(`${path}/api/add`, formData)
       .then((res) => {
         setData(res.data);
         setTimeout(()=>{
