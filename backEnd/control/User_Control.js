@@ -65,7 +65,7 @@ const logIn = async (req, res) => {
 
   //let done = res.status(200).json({ token });
   console.log(exist);
-  return res.status(200).json({ ww:"loged in " });
+  return res.status(200).json({ ww:"loged in" });
 };
 
 const veryFeidToken = (req, res, next) => {
@@ -82,7 +82,7 @@ const veryFeidToken = (req, res, next) => {
       }
       //console.log(user.id);
       req.id = user.id;
-      console.log(req.id + "heeeereee");
+      console.log(req.id + "hereee");
       next();
     });
   } else {
