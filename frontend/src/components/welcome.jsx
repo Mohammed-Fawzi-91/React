@@ -10,7 +10,7 @@ const getData = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("https://tess-app.onrender.com//api/getData");
+      const result = await axios.get("https://tess-app.onrender.com/api/getData");
       setData(result.data);
     };
     fetchData();
