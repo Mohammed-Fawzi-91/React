@@ -11,7 +11,7 @@ function SignUp() {
   const sendTheData = async () => {
     try {
       await Axios.post("http://localhost:3500/api/signup", {
-        name,
+
         email,
         password,
       })

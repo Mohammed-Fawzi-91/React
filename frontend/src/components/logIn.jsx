@@ -13,25 +13,23 @@ function LogIn() {
 
 
   const check = async () => {
-    setLoading(true);
-    setError(null);
+ 
     console.log(email);
     console.log(password);
 
-    try {
-      const res = await axios.post(`${path}/api/login`, {
+  
+     await axios.post(`${path}/api/login`, {
         email,
         password,
-      });
+      }).then(()=>{
+        navigate("/welcome")
+      }
+
+      );
       console.log(1);
 
       
-      navigate("/welcome");
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
+
   };
 
   return (
