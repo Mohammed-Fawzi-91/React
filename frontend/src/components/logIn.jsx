@@ -16,6 +16,8 @@ function LogIn() {
   const check = async () => {
     setLoading(true);
     setError(null);
+    console.log(email);
+    console.log(password);
 
     try {
       const res = await axios.post(`${path}/api/login`, {
