@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
-import "./header.css";
+import { useState } from "react";
+import "./logIn.css";
 import { useNavigate } from "react-router-dom";
+
 const path = "https://tess-app.onrender.com";
 
 function LogIn() {
@@ -11,47 +12,50 @@ function LogIn() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-
   const check = async () => {
- 
-    console.log(email);
-    console.log(password);
-
-  
-     await axios.post(`${path}/api/login`, {
+    try {
+      setLoading(true);
+      const response = await axios.post(`${path}/api/login`, {
         email,
         password,
-      }).then(()=>{
-        navigate("/welcome")
-      }
-
-      );
-      console.log(1);
-
-      
-
+      });
+      navigate("/welcome");
+    } catch (error) {
+      setError("Invalid email or password.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div>
-      <div>
+    <div className="form-container">
+      <h2>Log In</h2>
+      <div className="form-group">
+        <label>Email</label>
         <input
           type="text"
-          placeholder="email"
+          className="form-control"
+          value={email}
           onChange={(event) => {
             setEmail(event.target.value);
           }}
         />
+      </div>
+      <div className="form-group">
+        <label>Password</label>
         <input
           type="password"
-          placeholder="password"
+          className="form-control"
+          value={password}
           onChange={(event) => {
             setPassword(event.target.value);
           }}
         />
-
-        <button onClick={check}> log in</button>
       </div>
+      <button className="btn btn-primary" onClick={check} disabled={loading}>
+        {loading ? "Logging in..." : "Log In"}
+      </button>
+      {error && <div className="error">{error}</div>}
     </div>
   );
 }

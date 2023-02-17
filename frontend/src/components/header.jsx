@@ -1,25 +1,33 @@
 import Axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./header.css";
 
+
+
+
+
 function Header() {
+  const location = useLocation();
+  
   return (
     <div className="App">
-      <Link to="/login">
-        <button>log in </button>
-      </Link>
+      {location.pathname !== "/welcome" && (
+        <>
+          <Link to="/login">
+            <button>log in</button>
+          </Link>
 
-      <Link to="/signup">
-        <button>signup</button>
-      </Link>
+        
+        </>
+      )}
 
-      <Link to="/welcome">
-        <button>welcome</button>
-      </Link>
+     
     </div>
   );
 }
+
 
 export default Header;
 

@@ -1,8 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
+import "./Welcome.css";
+
 const path = "https://tess-app.onrender.com";
+
 
 
 
@@ -86,20 +90,35 @@ const Welcome = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileUpload} />
-        <input type="number" onChange={(event) => {
-            setYear(event.target.value)}} />
-        <button type="submit">Upload</button>
-        <p>{data}</p>
-        <div>{getData()}</div>
-       
+      <form className="upload-form" onSubmit={handleSubmit}>
+        <h3>Upload a file</h3>
+        <div className="form-group">
+          <label htmlFor="fileInput">Select a file:</label>
+          <input
+            type="file"
+            className="form-control-file"
+            id="fileInput"
+            onChange={handleFileUpload}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="yearInput">Enter the year:</label>
+          <input
+            type="number"
+            className="form-control"
+            id="yearInput"
+            onChange={(event) => {
+              setYear(event.target.value);
+            }}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Upload
+        </button>
+        <p className="text-danger">{data}</p>
       </form>
 
-
-    
- 
-   
+      <div className="table-container">{getData()}</div>
     </div>
   );
 };
