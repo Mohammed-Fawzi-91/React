@@ -1,4 +1,4 @@
-//const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 const UserModel = require("../models/Users");
 const dataSchema = require("../models/data");
 const jwt = require("jsonwebtoken");
@@ -58,14 +58,14 @@ const logIn = async (req, res) => {
     return res.status(400).json({ message: "user not found" });
   }
  
-  if (password !== exist.password) {
+  const match = bcrypt.compareSync(password, exist.password);
+  if (!match) {
     return res.status(400).json({ message: "wrong pass" });
   }
- 
 
-  //let done = res.status(200).json({ token });
+  const token = jwt.sign({ id: exist._id }, KEY);
   console.log(exist);
-  return res.status(200).json({ ww:"loged in " });
+  return res.status(200).json({ token });
 };
 
 const veryFeidToken = (req, res, next) => {
