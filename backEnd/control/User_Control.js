@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
 const UserModel = require("../models/Users");
 const dataSchema = require("../models/data");
 const jwt = require("jsonwebtoken");
@@ -32,11 +32,11 @@ const postUser = async (req, res) => {
       console.log("its allredey there");
       return res.status(400).json({ message: "err" });
     } else {
-      const hashPassword = bcrypt.hashSync(user.password, 10);
+      //const hashPassword = bcrypt.hashSync(user.password, 10);
       const newUser = new UserModel({
         name: user.name,
         email: user.email,
-        password: hashPassword,
+        password: user.password,
       });
       await newUser.save();
 
@@ -57,7 +57,7 @@ const logIn = async (req, res) => {
   if (!exist) {
     return res.status(400).json({ message: "user not found" });
   }
-  let isPasswordValid = bcrypt.compareSync(password, exist.password);
+  let isPasswordValid = compareSync(password, exist.password);
   if (!isPasswordValid) {
     return res.status(400).json({ message: "wrong pass" });
   }
