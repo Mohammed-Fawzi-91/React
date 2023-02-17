@@ -14,15 +14,16 @@ function App() {
 
       <main>
         <Routes>
+        <Route path="/welcome" element={<Welcome />}>
+            {" "}
+          </Route>
           <Route path="/login" element={<LogIn />}>
             {" "}
           </Route>
           <Route path="/signup" element={<SignUp />}>
             {" "}
           </Route>
-          <Route path="/welcome" element={<Welcome />}>
-            {" "}
-          </Route>
+         
         </Routes>
       </main>
     </React.Fragment>
