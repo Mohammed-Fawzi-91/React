@@ -11,12 +11,11 @@ const bodyParser = require("body-parser");
 const path = require('path');
 
 
-// Serve static files from the build folder
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, "client/build")));
 
-// Configure a catch-all route that returns the index.html file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.js'));
+// Handle any other requests that don't match the ones above
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 app.use(cors());
