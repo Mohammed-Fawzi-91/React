@@ -14,18 +14,19 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/api", router);
 app.use(bodyParser.text({ type: "text/*" }));
+const mongodbUri = process.env.MONGODB_URI || "mongodb://localhost:27017/myapp";
+const port = process.env.PORT || 3500;
 
 try {
   mongoose
-    .connect(
-      "mongodb+srv://mohammed:mohammed@cluster0.cajisw7.mongodb.net/test1?retryWrites=true&w=majority"
-    )
+    .connect(mongodbUri)
     .catch((err) => {
       console.log(err);
     })
     .then(() => {
-      app.listen(3500, () => {
-        console.log("hello bitch");
+  
+      app.listen(port, () => {
+        console.log(`Server listening on port ${port}`);
       });
     });
 } catch (err) {
