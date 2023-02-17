@@ -24,13 +24,7 @@ function LogIn() {
       });
       console.log(1);
 
-      const theDataCoin = res.data.theCode;
-      console.log(theDataCoin);
-      if (!theDataCoin) {
-        throw new Error("Login failed");
-      }
-
-      localStorage.setItem("token", theDataCoin);
+      
       history("/welcome");
     } catch (err) {
       setError(err.message);
