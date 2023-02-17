@@ -22,9 +22,10 @@ function LogIn() {
         email,
         password,
       });
+      console.log(1);
 
       const theDataCoin = res.data.theCode;
-      //console.log(theDataCoin);
+      console.log(theDataCoin);
       if (!theDataCoin) {
         throw new Error("Login failed");
       }
