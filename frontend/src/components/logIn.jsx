@@ -4,13 +4,12 @@ import "./header.css";
 import { useNavigate } from "react-router-dom";
 const path = "https://tess-app.onrender.com";
 
-
 function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
 
   const check = async () => {
@@ -27,7 +26,7 @@ function LogIn() {
       console.log(1);
 
       
-      history("/welcome");
+      navigate("/welcome");
     } catch (err) {
       setError(err.message);
     } finally {
@@ -46,14 +45,14 @@ function LogIn() {
           }}
         />
         <input
-          type="text"
+          type="password"
           placeholder="password"
           onChange={(event) => {
             setPassword(event.target.value);
           }}
         />
 
-        <button onClick={check}>add info</button>
+        <button onClick={check}> log in</button>
       </div>
     </div>
   );
