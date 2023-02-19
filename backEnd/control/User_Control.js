@@ -1,5 +1,4 @@
 const UserModel = require("../models/Users");
-const dataSchema = require("../models/data");
 
 
 
