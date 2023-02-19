@@ -14,6 +14,7 @@ const getData = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    
     const fetchData = async () => {
       const result = await axios.get(`${path}/api/getData`);
       setData(result.data);
