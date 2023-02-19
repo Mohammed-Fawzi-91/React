@@ -1,7 +1,6 @@
 const UserModel = require("../models/Users");
 
 
-
 const logIn = async (req, res) => {
   const { email, password } = req.body;
   let exist;
