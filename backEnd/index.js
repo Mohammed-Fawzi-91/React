@@ -11,7 +11,7 @@ const bodyParser = require("body-parser");
 const path = require('path');
 
 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "/control/data_control.js")));
 
 // Handle any other requests that don't match the ones above
 app.get("*", (req, res) => {
