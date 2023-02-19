@@ -8,6 +8,16 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const path = require('path');
+
+
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// Handle any other requests that don't match the ones above
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
+
 app.use(cors());
 
 app.use(express.json());
