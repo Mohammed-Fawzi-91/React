@@ -50,6 +50,7 @@ const addData =  (req, res) => {
 
 
 const getData = (req, res) => {
+  console.log("readinf");
   theData.find({}, (error, data) => {
     if (error) {
       console.log(error);
