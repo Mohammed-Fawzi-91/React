@@ -29,14 +29,13 @@ function MainAdmin (){
         <Route path='/logIn' component={LogIn}/>
         <Route path='/welcome' component={Welcome}/>
 
-        <Route path='/A_Inventar' component={LogIn}/>
+        <Route path='/A_Inventar' component={A_Inventar}/>
             <Route path='/A_Bestillinger' component={A_Bestillinger}/>
             <Route path='/A_Tellelister' component={A_Tellelister}/>
             <Route path='/A_Dokumentasjon' component={A_Dokumentasjon}/>
             <Route path='/A_Brukere' component={A_Brukere}/>
             <Route path='/OmOss' component={OmOss}/>
 
-            <Redirect to="/A_Inventar"/> 
         </Switch>
         </BrowserRouter>
         <hr/>       
