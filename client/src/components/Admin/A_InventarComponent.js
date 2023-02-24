@@ -7,7 +7,7 @@ function A_Inventar() {
   const [terminals, setTerminals] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/v1/terminals')
+    axios.get('https://tess-app.onrender.com/api/v1/terminals')
       .then(response => {
         setTerminals(response.data.terminal);
       })
