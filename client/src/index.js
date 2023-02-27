@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
-  <Router basename="https://main--animated-jelly-77352e.netlify.app/">
+  <Router basename="https://main--animated-jelly-77352e.netlify.app/A_Inventar">
     <App />
   </Router>,
   document.getElementById("root")
