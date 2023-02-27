@@ -26,7 +26,7 @@ function MainAdmin (){
         <A_Header/> 
         <main>
         <BrowserRouter>
-        <Routes>
+      
         <Route path='/logIn' component={LogIn}/>
         <Route path='/welcome' component={Welcome}/>
 
@@ -38,7 +38,7 @@ function MainAdmin (){
             <Route path='/OmOss' component={OmOss}/>
 
             <Redirect to="/A_Inventar"/> 
-        </Routes>
+
         
         </BrowserRouter>
         </main>
