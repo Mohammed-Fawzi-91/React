@@ -12,9 +12,8 @@ import Footer from './FooterComponent';
 import OmOss from './OmOssComponent';
 
 function MainAdmin() {
-  return (
-    <React.Fragment>
-      <BrowserRouter>
+    return (
+      <React.Fragment>
         <A_Header />
         <Switch>
           <Route path='/logIn' component={LogIn} />
@@ -29,9 +28,8 @@ function MainAdmin() {
         </Switch>
         <hr />
         <Footer />
-      </BrowserRouter>
-    </React.Fragment>
-  )
-}
-
+      </React.Fragment>
+    )
+  }
+  
 export default withRouter(MainAdmin);
