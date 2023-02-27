@@ -17,7 +17,7 @@ function MainAdmin() {
         <A_Header />
         <Switch>
           <Route path='/logIn' component={LogIn} />
-          <Route path='/welcome' element={<Welcome />} />
+          <Route path='/welcome' component={Welcome} />
           <Route path='/A_Inventar' component={A_Inventar} />
           <Route path='/A_Bestillinger' component={A_Bestillinger} />
           <Route path='/A_Tellelister' component={A_Tellelister} />
