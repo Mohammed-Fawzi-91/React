@@ -122,7 +122,8 @@ const Welcome = ({ history }) => {
     </div>
   );
 };
-export default Welcome;
+
+export default withRouter(Welcome);
 
 
 
