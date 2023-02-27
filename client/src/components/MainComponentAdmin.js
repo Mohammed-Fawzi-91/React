@@ -15,7 +15,7 @@ import Welcome from './Admin/welcome';
 import Footer from './FooterComponent';
 import OmOss from './OmOssComponent';
 
-import {Switch, Route, Redirect, withRouter, BrowserRouter} from 'react-router-dom';
+import {Switch, Route,Routes, Redirect, withRouter, BrowserRouter} from 'react-router-dom';
 
 //TODO: Opprette en variabel for å tilknytte brukerID, deretter skiftes ruting til enten B_ eller A_ Header
 //Også en mulighet å lage 2 main funksjoner her og sette spørringen i App.js
@@ -24,8 +24,9 @@ function MainAdmin (){
         return(
             <React.Fragment>
         <A_Header/> 
+        <main>
         <BrowserRouter>
-        <Switch>
+        <Routes>
         <Route path='/logIn' component={LogIn}/>
         <Route path='/welcome' component={Welcome}/>
 
@@ -36,15 +37,18 @@ function MainAdmin (){
             <Route path='/A_Brukere' component={A_Brukere}/>
             <Route path='/OmOss' component={OmOss}/>
 
-        </Switch>
+            <Redirect to="/A_Inventar"/> 
+        </Routes>
+        
         </BrowserRouter>
+        </main>
         <hr/>       
         <Footer/>
             </React.Fragment>
         )
 }
 
-export default MainAdmin;
+export default withRouter(MainAdmin);
 
 /*
 Inventar
