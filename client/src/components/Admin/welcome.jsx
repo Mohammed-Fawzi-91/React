@@ -4,6 +4,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import "./Welcome.css";
+import { withRouter } from 'react-router-dom';
 
 const path = "https://tess-app.onrender.com";
 
@@ -51,7 +52,7 @@ const getData = () => {
 
 
 
-const Welcome = () => {
+const Welcome = ({ history }) => {
   const [file, setFile] = useState(null);
   const [data, setData] = useState([]);
   const [year, setYear] = useState();
@@ -73,20 +74,18 @@ const Welcome = () => {
     formData.append("file", file);
      formData.append("year", year);
      console.log(formData)
-    axios
-      .post(`${path}/api/add`, formData)
-      .then((res) => {
-        setData(res.data);
-        setTimeout(()=>{
-          window.location.reload();
+     axios
+     .post(`${path}/api/add`, formData)
+     .then((res) => {
+       setData(res.data);
+       setTimeout(() => {
+         history.push('/welcome'); // navigate to the welcome page
+       }, 2000);
+     })
+     .catch((err) => console.log(err));
+ };
 
-
-        },2000)
-
-      })
-      .catch((err) => console.log(err));
-
-      }
+      
   };
 
   return (
