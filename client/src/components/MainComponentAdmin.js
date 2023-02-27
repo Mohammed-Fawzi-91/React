@@ -24,7 +24,7 @@ function MainAdmin() {
           <Route path='/A_Dokumentasjon' component={A_Dokumentasjon} />
           <Route path='/A_Brukere' component={A_Brukere} />
           <Route path='/OmOss' component={OmOss} />
-          <Redirect to="/A_Inventar" />
+          <Redirect to="/logIn" />
         </Switch>
         <hr />
         <Footer />
