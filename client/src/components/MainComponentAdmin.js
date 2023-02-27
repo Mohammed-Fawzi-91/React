@@ -44,7 +44,7 @@ function MainAdmin (){
         )
 }
 
-export default withRouter(MainAdmin);
+export default MainAdmin;
 
 /*
 Inventar
